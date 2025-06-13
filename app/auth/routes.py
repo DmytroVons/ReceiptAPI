@@ -8,6 +8,7 @@ from app.auth.utils import hash_password, verify_password, create_access_token
 
 router = APIRouter(prefix="/auth", tags=["Auth"])
 
+
 @router.post("/register", response_model=Token)
 async def register(user_data: UserRegister, session: AsyncSession = Depends(get_session)):
     result = await session.execute(select(User).where(User.username == user_data.username))
@@ -25,6 +26,7 @@ async def register(user_data: UserRegister, session: AsyncSession = Depends(get_
 
     token = create_access_token(data={"sub": str(user.id)})
     return {"access_token": token}
+
 
 @router.post("/login", response_model=Token)
 async def login(credentials: UserLogin, session: AsyncSession = Depends(get_session)):

@@ -2,9 +2,9 @@ from sqlalchemy import Column, Integer, String, ForeignKey, DateTime, Numeric, E
 from sqlalchemy.orm import relationship
 from sqlalchemy.sql import func
 from app.database import Base
-import enum
+from enum import Enum
 
-class PaymentType(str, enum.Enum):
+class PaymentType(str, Enum):
     cash = "cash"
     cashless = "cashless"
 

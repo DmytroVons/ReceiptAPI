@@ -13,6 +13,7 @@ from sqlalchemy import select, func, and_
 
 router = APIRouter(prefix="/receipts", tags=["Receipts"])
 
+
 @router.post("/", response_model=ReceiptOut)
 async def create_receipt(
     receipt_data: ReceiptCreate,
@@ -54,6 +55,7 @@ async def create_receipt(
         "created_at": receipt.created_at
     }
 
+
 @router.get("/", response_model=PaginatedReceipts)
 async def list_receipts(
     filters: dict = Depends(get_receipt_filters),
@@ -94,6 +96,7 @@ async def list_receipts(
         "receipts": receipts
     }
 
+
 @router.get("/{receipt_id}", response_model=ReceiptOut)
 async def get_receipt_by_id(
     receipt_id: int,
@@ -121,6 +124,7 @@ async def get_receipt_by_id(
         "rest": receipt.rest,
         "created_at": receipt.created_at,
     }
+
 
 @router.get("/public/{receipt_id}/", response_class=PlainTextResponse)
 async def get_receipt_text(

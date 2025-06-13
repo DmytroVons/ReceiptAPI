@@ -1,6 +1,5 @@
 import asyncio
 from app.database import engine, Base
-from app.models import User  # імпортуй свої моделі
 
 async def init_models():
     async with engine.begin() as conn:

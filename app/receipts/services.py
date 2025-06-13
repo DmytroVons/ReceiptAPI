@@ -2,6 +2,7 @@ from typing import List
 from decimal import Decimal
 from app.schemas import ProductInput
 
+
 def calculate_totals(products: List[ProductInput]):
     product_totals = []
     total_sum = Decimal("0.00")
