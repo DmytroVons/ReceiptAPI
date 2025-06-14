@@ -17,7 +17,7 @@ This is a REST API for creating and viewing receipts with user registration and 
 
 ```bash
 git clone <repository_url>
-cd receipt_api
+cd ReceiptAPI
 ```
 
 ### 2. Create and activate a virtual environment
